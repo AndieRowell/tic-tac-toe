@@ -1,4 +1,19 @@
 //! Pseudocode
+//TODO - FUNCTIONS I NEED
+// initializeGame()
+// renderBoard()
+// restartGame()
+// clickTile(tileIndex)
+// checkWinner()
+// isBoardFull()
+// switchPlayer()
+// displayMessage()
+// addEventListeners()
+// hoverEffect()
+// showModal(message)
+// validateInput()
+
+
 
 //INITIALIZE
 
@@ -80,6 +95,7 @@ function buildBoard() {
             const topFirstCol = document.createElement("div");
             topFirstCol.textContent = "0";
             topFirstCol.classList.add("col-4");
+            topFirstCol.classList.add("div-shadow");
             topRow.appendChild(topFirstCol);
 
             const topSecondCol = document.createElement("div");
@@ -154,6 +170,9 @@ function buildBoard() {
 // already have this at the top... and connected in body tag
 
 /*
+
+
+
     for (let i = 0; i < 3; i++) {
         const lastCol = document.createElement("div");
         lastCol.classList.add("col-4");
@@ -164,6 +183,14 @@ function buildBoard() {
 // somehow add event listener to the tile spaces
 // add a click event - onclick="clickTile(this)" - class?
 // but then when the click happens - the marker gets populated?
+
+//! make a marker appear when click on a square also determined by whose turn
+// and then LOG that piece to the index?
+
+
+
+
+
 // could add a hover effect where the tile size increases to
 //      let the user know which tile they're about to select
 // change the cursor to a pointer whenever theyre about to select the square as well
@@ -172,6 +199,7 @@ function buildBoard() {
 
 // create the array of all of the possible winning combos
 
+/*
 const winCombosArr = [
     [0, 1, 2],
     [3, 4, 5],
@@ -182,10 +210,85 @@ const winCombosArr = [
     [1, 4, 7],
     [2, 5, 8]
 ]
-
+*/
 
 // compare against that array to determine if there is a winner everytime a tile is clicked
-function checkWinner(){}
+//function checkWinner(){}
+
+function renderMarker() {
+    // access an image by the id and change the display property to block??
+    // block? or maybe inline block?
+    document.getElementbyID("image")
+        .style.display = "block";
+    document.getElementByID('btnID')
+        .style.display = "none";
+}
+
+
+function checkWinner() {};
+
+function isBoardFull() {};
+
+function switchPlayer() {
+    let player1 = "X";
+
+};
+
+
+if (checkWinner()) {
+    displayMessage{$}
+} else if (isBoardFull()) {
+    displayMessage
+} else (switchPlayer()) {
+
+}
+
+
+
+
+
 
 // when the winning combo is determined or tiles run out - a modal is displayed with a winner or tie message
 // a message displays whose turn it is - toggle or switches to the next player turn
+
+
+
+// array tile objects? - call to that player1 or player2 property when click on tile?
+letTileObjectsArr = [
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    },
+    {
+        "player1": "x",
+        "player2": "o"
+    }
+]
