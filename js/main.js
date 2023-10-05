@@ -10,27 +10,43 @@ const ticTacToe = document.getElementById("tic-tac-toe");
 // create the input form for the player name
 // populate the player name to be displayed
 
-//container that holds the player names and input form + button
+// game title container
+    const gameTitleContainer = document.createElement("div");
+    ticTacToe.appendChild(gameTitleContainer);
+
+// game title
+    const gameTitle = document.createElement("h1");
+    gameTitle.setAttribute("type", "text");
+    gameTitle.textContent = "TIC-TAC-TOE";
+    gameTitle.classList.add("text-center", "mx-auto", "d-flex");
+    gameTitleContainer.appendChild(gameTitle);
+
+// container that holds the player names and input form + button
     const nameInputContainer = document.createElement("div");
     ticTacToe.appendChild(nameInputContainer);
 
-//form
+// form
     const inputForm = document.createElement("form");
     nameInputContainer.appendChild(inputForm);
 
-//input field for writing your name
-//this should loop? re
+
+// input field for writing your name
+// this should loop? re
     const nameInput = document.createElement("input");
     nameInput.setAttribute("type", "text");
     nameInput.setAttribute("placeholder", "Enter Your Name");
     nameInput.classList.add("text-center", "mx-auto", "d-flex");
     inputForm.appendChild(nameInput);
 
+// button for entering/saving the name
+
+
+
 
 
 //! initialize function
 // function that creates the tiles/board
-//function init();
+// function init();
 
 
 // need to condense this code
@@ -108,12 +124,29 @@ function buildBoard() {
             lastThirdCol.textContent = "8";
             lastThirdCol.classList.add("col-4");
             lastRow.appendChild(lastThirdCol);
-}
 
-buildBoard();
 
-//document.addEventListener("DOMContentLoaded", buildBoard);
-//already have this at the top... and connected in body tag
+            //restart game button container
+            const restartBtnContainer = document.createElement("div");
+            ticTacToe.appendChild(restartBtnContainer);
+
+        //restart button
+        const restartBtn = document.createElement("button");
+        restartBtn.setAttribute("type", "text");
+        restartBtn.textContent = "RESTART";
+        restartBtn.classList.add("text-center", "mx-auto", "d-flex")
+        restartBtnContainer.appendChild(restartBtn);
+
+
+        }
+
+
+
+
+//buildBoard();
+
+// document.addEventListener("DOMContentLoaded", buildBoard);
+// already have this at the top... and connected in body tag
 
 /*
     for (let i = 0; i < 3; i++) {
@@ -123,6 +156,16 @@ buildBoard();
     }
 */
 
-//somehow add event listener to the tile spaces
-//add a click event - onclick="clickTile(this)"
-//but then when the click happens - the marker gets populated?
+// somehow add event listener to the tile spaces
+// add a click event - onclick="clickTile(this)" - class?
+// but then when the click happens - the marker gets populated?
+// could add a hover effect where the tile size increases to
+//      let the user know which tile they're about to select
+// change the cursor to a pointer whenever theyre about to select the square as well
+//      to help the user know that the tile is clickable
+
+
+// create the array of all of the possible winning combos
+// compare against that array to determine if there is a winner everytime a tile is clicked
+// when the winning combo is determined or tiles run out - a modal is displayed with a winner or tie message
+// a message displays whose turn it is - toggle or switches to the next player turn
