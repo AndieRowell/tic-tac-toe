@@ -64,10 +64,29 @@ restartBtn.classList.add("text-center", "mx-auto", "d-flex")
 restartBtnContainer.appendChild(restartBtn);
 
 
-//!function that adds event listeners
+//function that adds event listeners
+function addEventListeners() {
+    ticTacToe.addEventListener("click", (event) => {
+        if (event.target.classList.contains("tile") && !gameOver) {
+            clickTile(event.target);
+        }
+    });
+
+    document.querySelector("button").addEventListener("click", restartGame);
+}
 
 
-//!function that handles the tile being clicked to add marker
+//function that handles the tile being clicked to add marker
+function clickTile(tile) {
+    const index = parseInt(tile.getAttribute("data-index"));
+    if (gameBoard[index] === null) {
+        gameBoard[index] = currentPlayer;
+        tile.textContent = currentPlayer;
+        checkWinner();
+        switchPlayer();
+    }
+}
+
 
 
 //function that checks for the winner (compares against array of winning combos)
@@ -113,7 +132,8 @@ function switchPlayer() {
 //function that restarts the game and clears the board
 function restartGame() {
     currentPlayer = "X";
-    gameBoard = [null, x9]
+    gameBoard = ["", "", "", "", "", "", "", "", ""];
+    //    gameBoard = [null, x9]
     gameOver = false;
 }
 
