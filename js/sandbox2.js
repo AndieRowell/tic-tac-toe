@@ -4,14 +4,14 @@
 let currentPlayer = "X";
 
 // gameBoard has to have its own array to store markers
-let gameBoard = ["", "", "", "", "", "", "", "", ""];
-// let gameBoard = [null, null, null, null, null, null, null, null, null, null]
+//let gameBoard = ["", "", "", "", "", "", "", "", ""];
+let gameBoard = [null, null, null, null, null, null, null, null, null, null]
 
 //gameover true or false
 let gameOver = false;
 
-//!connect html div to js
-//const ticTacToe = document.getElementById("tic-tac-toe");
+//connect html div to js
+const ticTacToe = document.getElementById("tic-tac-toe");
 
 //*initialize the game itself
 
@@ -23,6 +23,20 @@ function initializeGame() {
 
 //need the function to build the ui - build board
 function buildBoard(){
+
+    // game title container
+    const gameTitleContainer = document.createElement("div");
+    ticTacToe.appendChild(gameTitleContainer);
+
+    // game title
+    const gameTitle = document.createElement("h1");
+    //gameTitle.setAttribute("type", "text");
+    gameTitle.textContent = "TIC-TAC-TOE";
+    gameTitle.classList.add("text-center", "mx-auto", "d-flex");
+    gameTitleContainer.appendChild(gameTitle);
+
+//original spot for displaymessage
+
 
     //create and append the main grid container
     const mainGridContainer = document.createElement("div");
@@ -60,6 +74,7 @@ ticTacToe.appendChild(restartBtnContainer);
 //restart button
 const restartBtn = document.createElement("button");
 restartBtn.textContent = "RESTART";
+restartBtn.setAttribute("id", "restartBtn");
 restartBtn.classList.add("text-center", "mx-auto", "d-flex")
 restartBtnContainer.appendChild(restartBtn);
 
@@ -72,7 +87,7 @@ function addEventListeners() {
         }
     });
 
-    document.querySelector("button").addEventListener("click", restartGame);
+    document.getElementById("restartBtn").addEventListener("click", restartGame);
 }
 
 
@@ -104,10 +119,10 @@ function checkWinner() {
 ];
 
     // signal a message "win!"- checking for a winner vs a tie
-    for (const combo of winComboArr) {
+    for (const combo of winCombosArr) {
         const [a, b, c] = combo;
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-        displayMessage(`${currentPlayer} wins!`);
+        pushMessage(`${currentPlayer} wins!`);
         gameOver = true;
         return;
 
@@ -116,7 +131,7 @@ function checkWinner() {
 
     // signal a message "tie" - checking for a winner vs a tie
     if (gameBoard.every((tile) => tile !== null)) {
-        displayMessage("It's a tie!");
+        pushMessage("It's a tie!");
         gameOver = true;
     }
 
@@ -131,22 +146,43 @@ function switchPlayer() {
 
 //function that restarts the game and clears the board
 function restartGame() {
+
+
     currentPlayer = "X";
-    gameBoard = ["", "", "", "", "", "", "", "", ""];
-    //    gameBoard = [null, x9]
+    //gameBoard = ["", "", "", "", "", "", "", "", ""];
+    gameBoard = [null, null, null, null, null, null, null, null, null]
     gameOver = false;
+    console.log("works");
+    console.log(gameBoard)
+
+    //global variables are reset?
+    //board cleared
+    const tile = document.querySelectorAll(".tile");
+    tile.forEach((tile) => {
+    tile.textContent = "";
+    });
+//message cleared
+//displayMessage("");
 }
 
-//global variables are reset?
-//board cleared
-const tiles = document.querySelectorAll(".tile");
-tiles.forEach((cell) => {
-    tiles.textContent = "";
-});
-//message cleared
-displayMessage("");
+
+
+
+// either rebuildboard or clear out textcontent for each tile
+
+
+
+
+
+
+// display message - header
+let displayMessage = document.createElement("h3");
+displayMessage.textContent = "";
+displayMessage.classList.add("text-center", "mx-auto", "d-flex");
+document.body.appendChild(displayMessage);
+//gameTitleContainer.appendChild(displayMessage);
 
 //function to display the message
-function displayMessage(message){
-
+function pushMessage(message) {
+    displayMessage.textContent = message;
 }
