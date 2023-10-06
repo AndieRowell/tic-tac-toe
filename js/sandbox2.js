@@ -10,7 +10,7 @@ let gameBoard = ["", "", "", "", "", "", "", "", ""];
 //gameover true or false
 let gameOver = false;
 
-//connect html div to js
+//!connect html div to js
 //const ticTacToe = document.getElementById("tic-tac-toe");
 
 //*initialize the game itself
@@ -25,12 +25,12 @@ function initializeGame() {
 function buildBoard(){
 
     //create and append the main grid container
-
     const mainGridContainer = document.createElement("div");
     mainGridContainer.classList.add("container");
     mainGridContainer.classList.add("mt-5");
     ticTacToe.appendChild(mainGridContainer);
 
+    //for loop to make the rows and columns (condense earlier code)
     for (let i = 0; i < 3; i++){
         const row = document.createElement("div");
         row.classList.add("row");
@@ -50,7 +50,6 @@ function buildBoard(){
 
 }
 
-//for loop to make the rows and columns (condense earlier code)
 
 
 //restart button at the bottom - container
@@ -72,9 +71,39 @@ restartBtnContainer.appendChild(restartBtn);
 
 
 //function that checks for the winner (compares against array of winning combos)
+function checkWinner() {
+    // win conditions array
+    const winCombosArr = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 4, 8],
+    [6, 4, 2],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8]
+];
 
-// win conditions array
-// signal a message - checking for a winner vs a tie
+    // signal a message "win!"- checking for a winner vs a tie
+    for (const combo of winComboArr) {
+        const [a, b, c] = combo;
+        if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+        displayMessage(`${currentPlayer} wins!`);
+        gameOver = true;
+        return;
+
+        }
+    }
+
+    // signal a message "tie" - checking for a winner vs a tie
+    if (gameBoard.every((tile) => tile !== null)) {
+        displayMessage("It's a tie!");
+        gameOver = true;
+    }
+
+}
+
+
 
 
 //function that switches the players
