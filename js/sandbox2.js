@@ -50,8 +50,15 @@ function buildBoard(){
 
 
 //restart button at the bottom - container
+const restartBtnContainer = document.createElement("div");
+ticTacToe.appendChild(restartBtnContainer);
+
 
 //restart button
+const restartBtn = document.createElement("button");
+restartBtn.textContent = "RESTART";
+restartBtn.classList.add("text-center", "mx-auto", "d-flex")
+restartBtnContainer.appendChild(restartBtn);
 
 
 //function that adds event listeners
