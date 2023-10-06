@@ -18,8 +18,33 @@ function initializeGame() {
 
 
 //need the function to build the ui - build board
+function buildBoard(){
 
-//create and append the main grid container
+    //create and append the main grid container
+
+    const mainGridContainer = document.createElement("div");
+    mainGridContainer.classList.add("container");
+    mainGridContainer.classList.add("mt-5");
+    ticTacToe.appendChild(mainGridContainer);
+
+    for (let i = 0; i < 3; i++){
+        const row = document.createElement("div");
+        row.classList.add("row");
+        mainGridContainer.appendChild(row);
+
+        for (let j = 0; j < 3; j++) {
+            const col = document.createElement("div");
+            const index = i * 3 + j;
+            col.textContent = index;
+            col.classList.add("col-4");
+            col.classList.add("btn-outline-success");
+            col.classList.add("tile");
+            col.setAttribute("data-index", index);
+            row.appendChild(col);
+        }
+    }
+
+}
 
 //for loop to make the rows and columns (condense earlier code)
 
