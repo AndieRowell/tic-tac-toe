@@ -205,7 +205,8 @@ function buildBoard() {
 // create the array of all of the possible winning combos
 
 /*
-const winCombosArr = [
+function checkWinner() {
+    const winCombosArr = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -214,7 +215,24 @@ const winCombosArr = [
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8]
-]
+];
+
+for (const combo of winComboArr) {
+    const [a, b, c] = combo;
+    if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+        displayMessage(`${currentPlayer} wins!`);
+        gameOver = true;
+        return;
+
+    }
+}
+if (gameBoard.every((tile) => tile !== null)) {
+    displayMessage("It's a tie!");
+    gameOver = true;
+}
+
+}
+
 */
 
 // compare against that array to determine if there is a winner everytime a tile is clicked
@@ -236,8 +254,11 @@ function renderMarker() {
 
 //function switchPlayer() {
 //    let player1 = "X";
-
 //};
+// funcction switchPlayer() {
+//      currentPlayer = currentPlayer === "X" ? "O" : "X";
+//}
+
 
 
 //if (checkWinner()) {
