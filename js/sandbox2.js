@@ -167,11 +167,7 @@ function restartGame() {
 
 
 
-
-// either rebuildboard or clear out textcontent for each tile
-
-
-
+// either rebuildboard or clear out textcontent for each tile?
 
 
 
