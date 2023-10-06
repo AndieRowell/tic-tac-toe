@@ -23,6 +23,11 @@
 }
 */
 
+.cell {
+    width: 100px;
+    height: 100px;
+}
+
 .div-shadow {
     width: 5em;
     height: 2em;

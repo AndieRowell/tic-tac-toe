@@ -1,0 +1,1 @@
+//initialize my global variables

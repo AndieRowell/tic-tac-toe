@@ -92,20 +92,25 @@ function buildBoard() {
 // add an event listener to the add button - that runs on a click - and calls the addNew function
 //newDiv.classlist.add("div-shadow"); - .div-shadow class in css
 
-            const topFirstCol = document.createElement("div");
+            const topFirstCol = document.createElement("button");
             topFirstCol.textContent = "0";
             topFirstCol.classList.add("col-4");
-            topFirstCol.classList.add("div-shadow");
+            topFirstCol.classList.add("btn-outline-success");
+            topFirstCol.classList.add("cell");
             topRow.appendChild(topFirstCol);
 
             const topSecondCol = document.createElement("div");
             topSecondCol.textContent = "1";
             topSecondCol.classList.add("col-4");
+            topSecondCol.classList.add("cell")
+            //topSecondCol.classList.add("div-shadow");
             topRow.appendChild(topSecondCol);
 
             const topThirdCol = document.createElement("div");
             topThirdCol.textContent = "2";
             topThirdCol.classList.add("col-4");
+            topThirdCol.classList.add("cell")
+            //topThirdCol.classList.add("div-shadow");
             topRow.appendChild(topThirdCol);
 
         const middleRow = document.createElement("div");
@@ -225,23 +230,23 @@ function renderMarker() {
 }
 
 
-function checkWinner() {};
+//function checkWinner() {};
 
-function isBoardFull() {};
+//function isBoardFull() {};
 
-function switchPlayer() {
-    let player1 = "X";
+//function switchPlayer() {
+//    let player1 = "X";
 
-};
+//};
 
 
-if (checkWinner()) {
-    displayMessage{$}
-} else if (isBoardFull()) {
-    displayMessage
-} else (switchPlayer()) {
+//if (checkWinner()) {
+//    displayMessage{$}
+//} else if (isBoardFull()) {
+//    displayMessage
+//} else (switchPlayer()) {
 
-}
+//}
 
 
 
