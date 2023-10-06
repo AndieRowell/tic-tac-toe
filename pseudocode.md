@@ -60,20 +60,27 @@ Two human players given either an "x" or "o", take alternating turns placing the
 - How can I potentially apply this to be able to expand to other games such as connect 4?
 - How to do this with less code...?
 
+### Considering Wireframe etc...
+![IMG_0586](https://github.com/AndieRowell/tic-tac-toe/assets/134252065/7444b02c-f748-4617-9cec-55ca19119a91)
+
+
 ### MoSCoW
 [!NOTE] Consider **MSCW** - **M**ust have, **S**hould have, **C**ould have, **W**on't have
 
 #### Must have:
 - all of the project requirements
--
 
 #### Should have:
-
+- a way to tell which player is current
+- a way to enter your name
 
 #### Could have:
-
+- a way to choose if you're x or o
+- store game wins/data
 
 #### Won't have:
-
+- add in an api
+- or add a randomized array
+- smashbro characters
 
 ### Analyzing the **Possible** Wireframes...
