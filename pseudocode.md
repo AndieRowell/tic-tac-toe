@@ -83,4 +83,3 @@ Two human players given either an "x" or "o", take alternating turns placing the
 - or add a randomized array
 - smashbro characters
 
-### Analyzing the **Possible** Wireframes...
