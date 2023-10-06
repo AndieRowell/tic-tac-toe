@@ -4,7 +4,11 @@
 let currentPlayer = "X";
 
 // gameBoard has to have its own array to store markers
+let gameBoard = ["", "", "", "", "", "", "", "", ""];
+// let gameBoard = [null, null, null, null, null, null, null, null, null, null]
 
+//gameover true or false
+let gameOver = false;
 
 //connect html div to js
 //const ticTacToe = document.getElementById("tic-tac-toe");
@@ -61,10 +65,10 @@ restartBtn.classList.add("text-center", "mx-auto", "d-flex")
 restartBtnContainer.appendChild(restartBtn);
 
 
-//function that adds event listeners
+//!function that adds event listeners
 
 
-//function that handles the tile being clicked to add marker
+//!function that handles the tile being clicked to add marker
 
 
 //function that checks for the winner (compares against array of winning combos)
@@ -77,9 +81,22 @@ restartBtnContainer.appendChild(restartBtn);
 
 
 //function that restarts the game and clears the board
+function restartGame() {
+    currentPlayer = "X";
+    gameBoard = [null, x9]
+    gameOver = false;
+}
+
 //global variables are reset?
 //board cleared
+const tiles = document.querySelectorAll(".tile");
+tiles.forEach((cell) => {
+    tiles.textContent = "";
+});
 //message cleared
-
+displayMessage("");
 
 //function to display the message
+function displayMessage(message){
+
+}
