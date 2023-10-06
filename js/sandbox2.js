@@ -104,9 +104,10 @@ function checkWinner() {
 }
 
 
-
-
 //function that switches the players
+function switchPlayer() {
+   currentPlayer = currentPlayer === "X" ? "O" : "X";
+}
 
 
 //function that restarts the game and clears the board
